@@ -1,12 +1,32 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const mysql =  require('mysql')
+const mqtt = require ('mqtt')
 
+var con = mysql.createConnection({
+  host:'localhost',
+  user:'grupo2',
+  password:'clave',
+  database:'db-pp-unlaiot'
+})
 
-app.use(express.static(__dirname + '/public'))
+con.connect(function (err){
+  if (err) throw err
+  console.log("Conexion a MySQL OK")
+})
 
-// app.use("/public", express.static(__dirname + "/public"));
+var options = {
+  connectTimeout : 4000,
+  clientId : 'dbConexion',
+  keeplive: 60,
+  clean: true,
+}
 
-app.listen(port, () => {
-  console.log("Servidor corriendo!");
+var WebSocket_URL = 'ws://35.198.31.198:8083/mqtt'
+var client = mqtt.connect(WebSocket_URL,options);
+
+client.on('connect', () => {
+  console.log('Mqtt conectado por WS')
+
+  client.subscribe("+/#", function(err){
+    console.log("Suscripcion exitosa a todos los topicos")
+  })
 });
