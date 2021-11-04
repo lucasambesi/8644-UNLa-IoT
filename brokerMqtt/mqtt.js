@@ -1,4 +1,5 @@
 const conexion = require('../database/db')
+const mqtt = require ('mqtt')
 
 var options = {
     connectTimeout : 4000,
@@ -8,17 +9,17 @@ var options = {
 }
 
 var WebSocket_URL = 'ws://35.198.31.198:8083/mqtt'
-var client = mqtt.connect(WebSocket_URL,options);
+var broker = mqtt.connect(WebSocket_URL,options);
 
-client.on('connect', () => {
+broker.on('connect', () => {
   console.log('Mqtt conectado por WS')
 
-  client.subscribe("+/#", function(err){
+  broker.subscribe("+/#", function(err){
     console.log("Suscripcion exitosa a todos los topicos")
   })
 });
 
-client.on('message',function(topic,message){
+broker.on('message',function(topic,message){
   console.log("Topico: "+ topic + " / Mensaje: " + message.toString())
   
   let query = "INSERT INTO `data` (`topic`, `mensaje`) VALUES ('" + topic + "','" +message.toString() + "')"
