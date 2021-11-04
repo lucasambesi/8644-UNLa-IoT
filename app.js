@@ -34,7 +34,7 @@ client.on('connect', () => {
 client.on('message',function(topic,message){
   console.log("Topico: "+ topic + " / Mensaje: " + message.toString())
   
-  let query = "INSERT INTO `data` (`topic`, `mensaje`, `create_at`) VALUES (" + topic + "," +message.toString() + ", CURRENT_TIMESTAMP(6).000000)"
+  let query = "INSERT INTO `data` (`topic`, `mensaje`) VALUES (" + topic + "," +message.toString() + ")"
   con.query(query,function(err,result,fields){
     if(err) throw err
     else console.log("Insert exitoso: " + result);
