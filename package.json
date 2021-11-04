@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/lucasambesi/grupo2-iot#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
     "mqtt": "^4.2.8",
     "mysql": "^2.18.1"
   },

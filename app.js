@@ -1,42 +1,21 @@
-const mysql =  require('mysql')
-const mqtt = require ('mqtt')
+const port  = process.env.PORT || 3000;
 
-var con = mysql.createConnection({
-  host:'localhost',
-  user:'grupo2',
-  password:'clave',
-  database:'db-pp-unlaiot'
-})
+const express = require ('express')
+const app = express()
 
-con.connect(function (err){
-  if (err) throw err
-  console.log("Conexion a MySQL OK")
-})
+//Imports rutas
+const RouteDefault = require('./routers/default') 
 
-var options = {
-  connectTimeout : 4000,
-  clientId : 'dbConexion',
-  keeplive: 60,
-  clean: true,
-}
+app.use('/', RouteDefault)
 
-var WebSocket_URL = 'ws://35.198.31.198:8083/mqtt'
-var client = mqtt.connect(WebSocket_URL,options);
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
 
-client.on('connect', () => {
-  console.log('Mqtt conectado por WS')
 
-  client.subscribe("+/#", function(err){
-    console.log("Suscripcion exitosa a todos los topicos")
-  })
-});
+app.use(express.static(__dirname + '/public'))
 
-client.on('message',function(topic,message){
-  console.log("Topico: "+ topic + " / Mensaje: " + message.toString())
-  
-  let query = "INSERT INTO `data` (`topic`, `mensaje`) VALUES ('" + topic + "','" +message.toString() + "')"
-  con.query(query,function(err,result,fields){
-    if(err) throw err
-    else console.log("Insert exitoso: " + result);
-  })
+app.use('/', RouteDefault)
+
+app.listen(port , () => {
+  console.log('Servidor escuchando en puerto: ', port)
 })
