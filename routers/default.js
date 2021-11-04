@@ -22,7 +22,6 @@ router.get('/', (req, res) => {
   //     titulo : 'Dashboard PP UNLa',
   //     dispositivos : dispositivos
   // })
-
 })
 
 router.get('/planta1', (req, res) => {
@@ -30,11 +29,12 @@ router.get('/planta1', (req, res) => {
     conexion.query('select * from data order by create_at desc', (error, results) => {
       if (error) throw error
       else{
-        res.render('index', {
+        res.render('plantas', {
+          planta : 'planta1',
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
           data : results
-      })
+        })
       }
     })
 
@@ -51,20 +51,14 @@ router.get('/planta2', (req, res) => {
     conexion.query('select * from data order by create_at desc', (error, results) => {
       if (error) throw error
       else{
-        res.render('index', {
+        res.render('plantas', {
+          planta : 'planta2',
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
           data : results
-      })
+        })
       }
     })
-
-  // res.render('plantas', {
-  //   planta : 'planta2',
-  //   tituloHead:'PP UNLa',
-  //   titulo : 'Dashboard PP UNLa',
-  //   data : data.reverse()
-  // })
 })
 
 module.exports = router
