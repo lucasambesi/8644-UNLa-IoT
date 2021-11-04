@@ -1,7 +1,35 @@
 <%- include("templates/head", {titulo: titulo, tituloHead: tituloHead}) %>
 
-<div class="container">
-    test
+<div class="container" style="text-align: center;">
+    <br>
+    <h1>Dispositivos conectados</h1>
+    <br>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Planta</th>
+                <th scope="col">Tanque</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Fecha creacion</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% dispositivos.forEach(dispositivo => { %>       
+                        <tr>
+                            <th scope="row"><%= dispositivo.id%></th>
+                            <td><%= dispositivo.nombre%></td>
+                            <td><%= dispositivo.planta%></td>
+                            <td><%= dispositivo.tanque%></td>
+                            <td><%= dispositivo.topic%></td>
+                            <td><%= dispositivo.create_at%></td>
+                        </tr>
+                <% }) %>
+            </tbody>
+          </table>
+    </div>
 </div>
 
 <%- include("templates/footer") %>

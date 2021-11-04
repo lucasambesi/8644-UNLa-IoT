@@ -1,0 +1,35 @@
+<meta http-equiv="Refresh" content="15"> 
+<%- include("templates/head", {titulo: titulo, tituloHead: tituloHead}) %>
+<% if (planta == 'planta1') { %>  
+    <div class="card-group">              
+        <%- include("tanque", {nombre: 'Planta 1 -> Tanque 1'
+        , sensor1: 'sensor2'
+        , sensor2: 'sensor2'
+        , sensor3: 'sensor3'}) %>
+        <%- include("tanque", {nombre: 'Planta 1 -> Tanque 2'
+        , sensor1: 'sensor4'
+        , sensor2: 'sensor5'
+        , sensor3: 'sensor6'}) %>
+        <%- include("tanque", {nombre: 'Planta 1 -> Tanque 3'
+        , sensor1: 'sensor7'
+        , sensor2: 'sensor8'
+        , sensor3: 'sensor9'}) %>
+    </div>
+<% } %>
+<% if (planta == 'planta2'){ %>  
+    <div class="card-group">              
+        <%- include("tanque", {nombre: 'Planta 2 -> Tanque 4'
+        , sensor1: 'sensor10'
+        , sensor2: 'sensor11'
+        , sensor3: 'sensor12'}) %>
+        <%- include("tanque", {nombre: 'Planta 2 -> Tanque 5'
+        , sensor1: 'sensor13'
+        , sensor2: 'sensor14'
+        , sensor3: 'sensor15'}) %>
+        <%- include("tanque", {nombre: 'Planta 2 -> Tanque 6'
+        , sensor1: 'sensor16'
+        , sensor2: 'sensor17'
+        , sensor3: 'sensor18'}) %>
+    </div>
+<% } %>
+<%- include("templates/footer") %>

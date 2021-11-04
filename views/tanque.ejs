@@ -1,0 +1,38 @@
+<div class="card" style="width: 18rem;">
+    <img src="./assets/img/tanque.PNG" 
+    class="card-img-center" width="150" alt="...">
+    <h5 class="card-title"><%= nombre %></h5>
+    <div class="card-body">
+    <p class="card-text">Historial de pH:</p>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Topico</th>
+            <th scope="col">pH</th>
+            <th scope="col">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>   
+                <% if (item.topic == sensor1 ||item.topic == sensor2 ||item.topic == sensor3) { %>        
+                    <tr>
+                        <th scope="row"><%= item.id%></th>
+                        <td><%= item.topic%></td>                       
+                        <td  
+                        <% if (item.mensaje <= '6.4' || item.mensaje >= '7.6'){ %>  
+                            class="table-danger"
+                        <% } else if (item.mensaje == '7'){ %>  
+                            class="table-success"
+                        <% } else{ %> 
+                            class="table-warning"
+                            <% }%> 
+                        ><%= item.mensaje%></td>                    
+                        <td><%= item.create_at%></td>
+                    </tr>
+                <% } %>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+</div>
