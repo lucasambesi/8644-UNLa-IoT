@@ -30,3 +30,7 @@ client.on('connect', () => {
     console.log("Suscripcion exitosa a todos los topicos")
   })
 });
+
+client.on('message',function(topic,message){
+  console.log("Topico: "+ topic + " / Mensaje: " + message.toString())
+})
