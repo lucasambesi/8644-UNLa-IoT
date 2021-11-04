@@ -11,6 +11,11 @@ var con = mysql.createConnection({
 con.connect(function (err){
   if (err) throw err
   console.log("Conexion a MySQL OK")
+  let query = 'SELECT * FROM `dispositivos`'
+  con.query(query,function(err,result,fields){
+    if(err) throw err
+    else console.log(result);
+  })
 })
 
 var options = {
