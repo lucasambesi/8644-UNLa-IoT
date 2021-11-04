@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     //     titulo : 'subtitulo dinamico'
     // })
     conexion.query('select * from dispositivos', (error, results) => {
-      if (err) throw err
+      if (error) throw error
       else{
         res.send(results)
       }
