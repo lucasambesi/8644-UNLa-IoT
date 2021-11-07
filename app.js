@@ -17,5 +17,5 @@ app.listen(port , () => {
 })
 
 app.use((req,res,next) => {
-  res.status(404).render('404', {titulo : 'subtitulo dinamico', tituloHead:'ERROR 404', error: 'acesso erroneo'})
+  res.status(404).render('/views/templates', {titulo : 'error', tituloHead:'ERROR 404', error: 'acesso erroneo'})
 })
