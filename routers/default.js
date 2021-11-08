@@ -110,7 +110,7 @@ router.get('/tanque6', (req, res) => {
 
 
 router.get('/test', (req, res) => {
- getData(conexion,'Tanque1',result => {
+ getData(conexion,'tanque1',result => {
   res.render('plantas', {
     planta : 'planta1',
     tituloHead:'PP UNLa',
