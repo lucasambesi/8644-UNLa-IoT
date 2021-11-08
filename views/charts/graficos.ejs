@@ -1,14 +1,18 @@
 <%- include("../templates/head", {titulo: titulo, tituloHead: tituloHead}) %>
-        <div class="card-group">   
-            <%- include("chartCard", {idChart:'radarChart', nombre: 'Tanque 1', widthChart: '200', heightChart: '200'}) %>
-            <%- include("chartCard", {idChart:'radarChart2', nombre: 'Tanque 2', widthChart: '200', heightChart: '200'}) %>
-        </div>
+<br>
+<%- include("../templates/cardTanques") %>
+<br>
+<h1><%=nombreTanque%></h1>
+<br>
+<div class="card-group">           
+        <%- include("chartCard", {idChart:'radarChart', nombre: 'Tanque 1', widthChart: '200', heightChart: '200'}) %>
+    </div>
 <%- include("../templates/footer") %>
 
 <script>
     let ctx= document.getElementById("radarChart").getContext("2d")
     let myChart = new Chart(ctx,{
-        type: "radar",
+        type: "bar",
         data:{
             labels : ['sensor 1','sensor 2','sensor 3'],
             datasets:[{
