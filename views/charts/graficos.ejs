@@ -1,0 +1,56 @@
+<%- include("../templates/head", {titulo: titulo, tituloHead: tituloHead}) %>
+        <div class="card-group">   
+            <%- include("chartCard", {idChart:'radarChart', nombre: 'Tanque 1', widthChart: '200', heightChart: '200'}) %>
+            <%- include("chartCard", {idChart:'radarChart2', nombre: 'Tanque 2', widthChart: '200', heightChart: '200'}) %>
+        </div>
+<%- include("../templates/footer") %>
+
+<script>
+    let ctx= document.getElementById("radarChart").getContext("2d")
+    let myChart = new Chart(ctx,{
+        type: "radar",
+        data:{
+            labels : ['sensor 1','sensor 2','sensor 3'],
+            datasets:[{
+                label: 'valor pH',
+                data:[9.4,5.8,8],
+                backgroundColor: [
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 204, 102, 0.5)',
+                    'rgb(0, 0, 255, 0.5)'
+                ]              
+            }]                
+        },
+        options: {
+        scale: {
+            min: 0,
+            max: 14,
+        },
+    },        
+});
+</script>
+
+<script>
+    let test= document.getElementById("radarChart2").getContext("2d")
+    let test2 = new Chart(test,{
+        type: "radar",
+        data:{
+            labels : ['sensor 1','sensor 2','sensor 3'],
+            datasets:[{
+                label: 'valor pH',
+                data:[7.4,6.5,8],
+                backgroundColor: [
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 204, 102, 0.5)',
+                    'rgb(0, 0, 255, 0.5)'
+                ]              
+            }]                
+        },
+        options: {
+        scale: {
+            min: 0,
+            max: 14,
+        },
+    },        
+});
+</script>
