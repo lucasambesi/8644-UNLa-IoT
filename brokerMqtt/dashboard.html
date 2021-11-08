@@ -1,0 +1,369 @@
+<style>
+    #normal .red {
+        border: 3px solid rgb(0, 0, 0);
+        margin: 0;
+        width: 600px;
+        height: 930px;
+        }
+
+  .boton{
+    text-decoration: none;
+    padding: 7px;
+    font-weight: 100;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1a94d1;
+    border-radius: 4px;
+    border: 1px solid #0016b0;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASH BOARD</title>
+</head>
+<body>
+    <div id="normal">
+        <div class="red">
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Administracion de Plantas</h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" width="50" height="50"/>
+                <br>   
+                <br>    
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+            <label for="name">Nombre de cliente:</label>
+            <input type="text" id="cliente" name="name" required
+                                minlength="4" maxlength="10" size="10">
+            <br>
+            <br>
+            <table BORDER="1">
+                <tr>
+                    <TH COLSPAN="3">
+                        <label for="name">Planta 1</label>
+                    </TH>            
+                </tr>
+                <TR>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 1</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 1</TH>
+                                <th><input type="text" id="sensor1" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 2</TH>
+                                <th><input type="text" id="sensor2" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 3</TH>
+                                <th><input type="text" id="sensor3" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque1')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>   
+                    </th>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 2</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 4</TH>
+                                <th><input type="text" id="sensor4" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 5</TH>
+                                <th><input type="text" id="sensor5" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 6</TH>
+                                <th><input type="text" id="sensor6" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque2')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>
+                    </th>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 3</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 7</TH>
+                                <th><input type="text" id="sensor7" name="name" required
+                                    minlength="1" maxlength="8" size="10"></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 8</TH>
+                                <th><input type="text" id="sensor8" name="name" required
+                                    minlength="1" maxlength="8" size="10"></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 9</TH>
+                                <th><input type="text" id="sensor9" name="name" required
+                                    minlength="1" maxlength="8" size="10"></th>                            
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque3')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>
+                    </th>
+                </TR>
+            </table>
+            <br>
+            <br>
+            <table BORDER="1">
+                <tr>
+                    <TH COLSPAN="3">
+                        <label for="name">Planta 2</label>
+                    </TH>            
+                </tr>
+                <TR>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 4</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 10</TH>
+                                <th><input type="text" id="sensor10" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 11</TH>
+                                <th><input type="text" id="sensor11" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 12</TH>
+                                <th><input type="text" id="sensor12" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque4')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>   
+                    </th>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 5</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 13</TH>
+                                <th><input type="text" id="sensor13" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 14</TH>
+                                <th><input type="text" id="sensor14" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 15</TH>
+                                <th><input type="text" id="sensor15" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque5')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>
+                    </th>
+                    <th>
+                        <TABLE  BORDER="5">
+                            <TR>
+                            <TH COLSPAN="2">
+                                <label for="name">Tanque 6</label>
+                                <br>
+                                <img src="https://cdn-icons.flaticon.com/png/512/3656/premium/3656702.png?token=exp=1635952842~hmac=9143f97009a9f0a865f33b6bd3fdb35d" width="100" height="100"/>
+                            </TH>
+                            </TR>
+                            <TR>
+                                <TH>Sensores</TH>
+                                <th><label for="name">ingresar pH:</label></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 16</TH>
+                                <th><input type="text" id="sensor16" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 17</TH>
+                                <th><input type="text" id="sensor17" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH>pH 18</TH>
+                                <th><input type="text" id="sensor18" name="name" required
+                                    minlength="1" maxlength="8" size="10"></td></th>
+                            </TR>
+                            <TR>
+                                <TH COLSPAN="2">
+                                    <br><button name="button" onclick="enviar('tanque6')" class="boton">Enviar</button>
+                                </TH>
+                            </TR>
+                        </table>
+                    </th>
+                </TR>
+            </table>
+        </div>
+    </div>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script type="text/javascript">
+        var options = {
+                connectTimeout : 4000,
+                clientId : document.getElementById('cliente').value,
+                keeplive: 60,
+                clean: true,
+            }
+
+        var WebSocket_URL = 'ws://35.198.31.198:8083/mqtt'
+        var client = mqtt.connect(WebSocket_URL,options);
+		
+		client.on('connect', () => {
+			console.log('Mqtt conectado por WS')
+		});
+
+        function enviar(tanque){
+            let sensor1,sensor2,sensor3
+
+            switch (tanque) {
+                case 'tanque1':
+                    sensor1 = 'sensor1'
+                    sensor2 = 'sensor2'
+                    sensor3 = 'sensor3'
+                    break;
+                case 'tanque2':
+                    sensor1 = 'sensor4'
+                    sensor2 = 'sensor5'
+                    sensor3 = 'sensor6'
+                    break;
+                case 'tanque3':
+                    sensor1 = 'sensor7'
+                    sensor2 = 'sensor8'
+                    sensor3 = 'sensor9'
+                    break;
+                case 'tanque4':
+                    sensor1 = 'sensor10'
+                    sensor2 = 'sensor11'
+                    sensor3 = 'sensor12'
+                    break;
+                case 'tanque5':
+                    sensor1 = 'sensor13'
+                    sensor2 = 'sensor14'
+                    sensor3 = 'sensor15'
+                    break;
+                case 'tanque6':
+                    sensor1 = 'sensor16'
+                    sensor2 = 'sensor17'
+                    sensor3 = 'sensor18'
+                    break;
+                default:
+                    break;
+            }
+            enviarMqqt(sensor1,sensor2,sensor3)
+        }
+
+
+        function enviarMqqt(sensor1,sensor2,sensor3){
+
+            var phSensor1 = document.getElementById(sensor1).value;
+            var phSensor2 = document.getElementById(sensor2).value;
+            var phSensor3 = document.getElementById(sensor3).value;           
+
+            if(phSensor1 != ''){
+                client.publish(sensor1, phSensor1, (error) => {
+                    console.log(error || 'Mensaje enviado! Topico: ', sensor1 + ', mensaje: ' + phSensor1)
+                });
+            }
+
+            if(phSensor2 != ''){
+                client.publish(sensor2, phSensor2, (error) => {
+                    console.log(error || 'Mensaje enviado! Topico: ', sensor2 + ', mensaje: ' + phSensor2)
+                });
+            }
+
+            if(phSensor3 != ''){
+                client.publish(sensor3, phSensor3, (error) => {
+                    console.log(error || 'Mensaje enviado! Topico: ', sensor3 + ', mensaje: ' + phSensor3)
+                });
+            }        
+        }
+    </script>
+</body>
+</html>
