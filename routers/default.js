@@ -60,17 +60,11 @@ router.get('/graficos', (req, res) => {
 })
 
 router.get('/tanque1', (req, res) => {
-  conexion.query('select * from data order by create_at desc', (error, results) => {
-    if (error) throw error
-    else{
-      res.render('planta1', {
-        tituloHead:'PP UNLa',
-        titulo : 'Dashboard PP UNLa',
-        nombreTanque: 'Tanque 1',
-        data:results
-      })
-    }
-  }) 
+  res.render('charts/graficos', {
+    tituloHead:'PP UNLa',
+    titulo : 'Dashboard PP UNLa',
+    nombreTanque: 'Tanque 1'
+  })
 })
 
 router.get('/tanque2', (req, res) => {
@@ -112,6 +106,18 @@ router.get('/tanque6', (req, res) => {
     titulo : 'Dashboard PP UNLa',
     nombreTanque: 'Tanque 6'
   })
+})
+
+
+router.get('/test', (req, res) => {
+ getData(conexion,'Tanque1',result => {
+  res.render('plantas', {
+    planta : 'planta1',
+    tituloHead:'PP UNLa',
+    titulo : 'Dashboard PP UNLa',
+    data : result
+  })
+ })
 })
 
 module.exports = router
