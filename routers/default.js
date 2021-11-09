@@ -51,7 +51,8 @@ router.get('/graficos', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 1'
     })
    })
 })
@@ -61,7 +62,8 @@ router.get('/tanque1', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 1'
     })
    })
 })
@@ -71,7 +73,8 @@ router.get('/tanque2', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 2'
     })
    })
 })
@@ -81,7 +84,8 @@ router.get('/tanque3', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 3'
     })
    })
 })
@@ -91,7 +95,8 @@ router.get('/tanque4', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 4'
     })
    })
 })
@@ -101,7 +106,8 @@ router.get('/tanque5', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 5'
     })
    })
 })
@@ -112,7 +118,8 @@ router.get('/tanque6', (req, res) => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result
+      data : result,
+      nombreTanque: 'Tanque 6'
     })
    })
 })
