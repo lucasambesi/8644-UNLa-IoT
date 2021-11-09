@@ -46,6 +46,16 @@ router.get('/planta2', (req, res) => {
     })
 })
 
+router.get('/graficos', (req, res) => {
+  getData(conexion,'tanque1',result => {
+    res.render('charts/graficos', {
+      tituloHead:'PP UNLa',
+      titulo : 'Dashboard PP UNLa',
+      data : result
+    })
+   })
+})
+
 router.get('/tanque1', (req, res) => {
   getData(conexion,'tanque1',result => {
     res.render('charts/graficos', {
