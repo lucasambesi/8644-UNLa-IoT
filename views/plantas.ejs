@@ -1,5 +1,9 @@
 <meta http-equiv="Refresh" content="15"> 
 <%- include("templates/head", {titulo: titulo, tituloHead: tituloHead}) %>
+<nav class="nav nav-pills nav-fill">
+    <a class="nav-item nav-link" href="/planta1">Planta 1</a>
+    <a class="nav-item nav-link" href="/planta2">Planta 2</a>
+  </nav>
 <% if (planta == 'planta1') { %>  
     <div class="card-group">              
         <%- include("tanque", {nombre: 'Planta 1 -> Tanque 1'
