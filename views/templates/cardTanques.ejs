@@ -1,50 +1,152 @@
+<div style="display: none;">
+<%= imageOK = 'https://cdn.discordapp.com/attachments/317487710837407754/907405960513982524/ok.png'%>
+<%= imageRevisar = "https://cdn.discordapp.com/attachments/317487710837407754/907405957011755008/revisar.png"%>
+<%= imageAlerta = "https://cdn.discordapp.com/attachments/317487710837407754/907405958383284324/alerta.png"%>
+
+<%= alertaTanque1 = setAlert('tanque1')%>
+<%= alertaTanque2 = setAlert('tanque2')%>
+<%= alertaTanque3 = setAlert('tanque3')%>
+<%= alertaTanque4 = setAlert('tanque4')%>
+<%= alertaTanque5 = setAlert('tanque5')%>
+<%= alertaTanque6 = setAlert('tanque6')%>
+<%= 
+setAlert = ((nombreTanque) => {
+  let tipoAlerta={ imagen: '', mensaje: 'ASSAD' };
+  let phSensor1 = ''
+  let phSensor2 = ''
+  let phSensor3 = ''
+  let phSensorValue1 = ''
+  let phSensorValue2 = ''
+  let phSensorValue3 = ''
+
+    switch(nombreTanque){
+        case 'tanque1':
+        phSensor1 = 'sensor1'
+        phSensor2 = 'sensor2'
+        phSensor3 = 'sensor3'
+        break;
+        case 'tanque2':
+        phSensor1 = 'sensor4'
+        phSensor2 = 'sensor5'
+        phSensor3 = 'sensor6'
+        break;
+        case 'tanque3':
+        phSensor1 = 'sensor7'
+        phSensor2 = 'sensor8'
+        phSensor3 = 'sensor9'
+        break;
+        case 'tanque4':
+        phSensor1 = 'sensor10'
+        phSensor2 = 'sensor11'
+        phSensor3 = 'sensor12'
+        break;
+        case 'tanque5':
+        phSensor1 = 'sensor13'
+        phSensor2 = 'sensor14'
+        phSensor3 = 'sensor15'
+        break;
+        case 'tanque6':
+        phSensor1 = 'sensor16'
+        phSensor2 = 'sensor17'
+        phSensor3 = 'sensor18'
+        break;
+        default:
+        phSensor1 = ''
+        phSensor2 = ''
+        phSensor3 = ''
+    }
+
+    lastPhAll.forEach(sensor => {
+        switch(sensor.topic){
+            case phSensor1:
+                phSensorValue1 = sensor.mensaje
+            break;
+            case phSensor2:
+                phSensorValue2 =  sensor.mensaje
+            break;
+            case phSensor3:
+                phSensorValue3 =  sensor.mensaje
+            break;
+        }
+    });
+
+    if(phEnAlerta(phSensorValue1) || phEnAlerta(phSensorValue2) || phEnAlerta(phSensorValue3)){
+      tipoAlerta.imagen = imageAlerta
+      tipoAlerta.mensaje = 'El pH del tanque necesita revisión URGENTE.'
+    }
+    else if (phSensorValue1 == 7 && phSensorValue2 == 7 && phSensorValue3 == 7){
+      tipoAlerta.imagen = imageOK
+      tipoAlerta.mensaje = 'El pH del tanque esta en nivel adecuado.'
+    }
+    else{
+      tipoAlerta.imagen = imageRevisar
+      tipoAlerta.mensaje = 'El pH del tanque necesita revisión.'
+    }
+      
+  return tipoAlerta
+})
+%>
+<%= 
+phEnAlerta = ((sensorPh) => {
+  if(sensorPh < 6.5 || sensorPh > 7.5)
+    return true
+  else
+    return false
+})
+
+%>
+</div>
 <div class="card-group">        
     <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 1</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405957011755008/revisar.png" alt="Alerta">
-            <p class="card-text">Este es un test del mensaje</p>
+            <img class="card-img-top" src=<%=alertaTanque1.imagen%> alt="Alerta">
+            <p class="card-text"><%=alertaTanque1.mensaje%></p>
             <a href="/tanque1" class="btn btn-secondary">Ver</a>
         </div>
       </div>
       <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 2</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405960513982524/ok.png" alt="Alerta">
-            <p class="card-text">Este es un test del mensaje</p>
+            <img class="card-img-top" src=<%=alertaTanque2.imagen%> alt="Alerta">
+            <p class="card-text"><%=alertaTanque2.mensaje%></p>
             <a href="/tanque2" class="btn btn-secondary">Ver</a>
         </div>
       </div>
       <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 3</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405958383284324/alerta.png" alt="Alerta">
-            <p class="card-text">Este es un test del mensaje</p>
+          <img class="card-img-top" src=<%=alertaTanque3.imagen%> alt="Alerta">
+          <p class="card-text"><%=alertaTanque3.mensaje%></p>
             <a href="/tanque3" class="btn btn-secondary">Ver</a>
         </div>
       </div>
     <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 4</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405957011755008/revisar.png" alt="Alerta">
-            <p class="card-text">El tanque 4 esta levemente desviado.</p>
+          <img class="card-img-top" src=<%=alertaTanque4.imagen%> alt="Alerta">
+          <p class="card-text"><%=alertaTanque4.mensaje%></p>
             <a href="/tanque4" class="btn btn-secondary">Ver</a>
         </div>
       </div>
     <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 5</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405960513982524/ok.png" alt="Alerta">
-            <p class="card-text">El tanque 5 esta en pH normal.</p>
+          <img class="card-img-top" src=<%=alertaTanque5.imagen%> alt="Alerta">
+          <p class="card-text"><%=alertaTanque5.mensaje%></p>
             <a href="/tanque5" class="btn btn-secondary">Ver</a>
         </div>
       </div>
       <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Tanque 6</div>
         <div class="card-body text-dark">
-            <img class="card-img-top" src="https://cdn.discordapp.com/attachments/317487710837407754/907405958383284324/alerta.png" alt="Alerta">
-            <p class="card-text">El tanque 6 necesita revision!</p>
+          <img class="card-img-top" src=<%=alertaTanque6.imagen%> alt="Alerta">
+          <p class="card-text"><%=alertaTanque6.mensaje%></p>
             <a href="/tanque6" class="btn btn-secondary">Ver</a>
         </div>
       </div>
 </div>
+
+
+<script>
+</script>
