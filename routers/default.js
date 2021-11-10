@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const conexion = require('../database/db')
 const broker = require('../brokerMqtt/mqtt')
-const {getData} = require('../Services/DataService')
+const {getData,getLastPhByTanque} = require('../Services/DataService')
 
  //#region Index
 router.get('/', (req, res) => {
