@@ -2,13 +2,6 @@
 <%= imageOK = 'https://cdn.discordapp.com/attachments/317487710837407754/907405960513982524/ok.png'%>
 <%= imageRevisar = "https://cdn.discordapp.com/attachments/317487710837407754/907405957011755008/revisar.png"%>
 <%= imageAlerta = "https://cdn.discordapp.com/attachments/317487710837407754/907405958383284324/alerta.png"%>
-
-<%= alertaTanque1 = setAlert('tanque1')%>
-<%= alertaTanque2 = setAlert('tanque2')%>
-<%= alertaTanque3 = setAlert('tanque3')%>
-<%= alertaTanque4 = setAlert('tanque4')%>
-<%= alertaTanque5 = setAlert('tanque5')%>
-<%= alertaTanque6 = setAlert('tanque6')%>
 <%= 
 setAlert = ((nombreTanque) => {
   let tipoAlerta={ imagen: '', mensaje: 'ASSAD' };
@@ -93,8 +86,13 @@ phEnAlerta = ((sensorPh) => {
   else
     return false
 })
-
 %>
+<%= alertaTanque1 = setAlert('tanque1')%>
+<%= alertaTanque2 = setAlert('tanque2')%>
+<%= alertaTanque3 = setAlert('tanque3')%>
+<%= alertaTanque4 = setAlert('tanque4')%>
+<%= alertaTanque5 = setAlert('tanque5')%>
+<%= alertaTanque6 = setAlert('tanque6')%>
 </div>
 <div class="card-group">        
     <div class="card border-dark mb-3" style="max-width: 18rem;">
