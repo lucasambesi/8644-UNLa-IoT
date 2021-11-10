@@ -49,15 +49,18 @@ router.get('/planta2', (req, res) => {
 
 //#region Dash Board
 router.get('/graficos', (req, res) => {
-  getLastPhByTanque(conexion,'tanque1',result => {
-    res.render('charts/graficos', {
-      tituloHead:'PP UNLa',
-      titulo : 'Dashboard PP UNLa',
-      nombreTanque: 'Tanque 1',
-      lastPhAll : lastPhAllTanques(conexion,'',result => {return result}),
-      lastPH: result
-    })
-   })
+
+  lastPhAllTanques(conexion,'',resultLastPhAllTanques => {
+    getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
+      res.render('charts/graficos', {
+        tituloHead:'PP UNLa',
+        titulo : 'Dashboard PP UNLa',
+        nombreTanque: 'Tanque 1',
+        lastPhAll : resultLastPhAllTanques,
+        lastPH: resultGetLastPhByTanque
+      })
+     })
+  })
 })
 
 router.get('/tanque1', (req, res) => {
