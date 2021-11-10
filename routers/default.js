@@ -64,7 +64,7 @@ router.post('/test', function (req, res, next) {
 //#region Dash Board
 router.get('/graficos', (req, res) => {
 let respuesta = '';
-  lastPhAllTanques(conexion,'',resultLastPhAllTanques => {
+    getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
     respuesta = resultLastPhAllTanques
     getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
       res.render('charts/graficos', {
