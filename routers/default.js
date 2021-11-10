@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const conexion = require('../database/db')
 const broker = require('../brokerMqtt/mqtt')
-const {getData,getLastPhByTanque} = require('../Services/DataService')
+const {getDataPlanta,getData,getLastPhByTanque} = require('../Services/DataService')
 
  //#region Index
 router.get('/', (req, res) => {
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 //#region Plantas Broker MQTT
 router.get('/planta1', (req, res) => {
-    getData(conexion,'tanque1',result => {
+  getDataPlanta(conexion,'planta1',result => {
       res.render('plantas', {
         planta : 'planta1',
         tituloHead:'PP UNLa',
@@ -33,7 +33,7 @@ router.get('/planta1', (req, res) => {
 
 router.get('/planta2', (req, res) => {
 
-    conexion.query('select * from data order by create_at desc', (error, results) => {
+  getDataPlanta(conexion,'planta2',result => {
       if (error) throw error
       else{
         res.render('plantas', {
@@ -46,20 +46,6 @@ router.get('/planta2', (req, res) => {
     })
 })
 //#endregion
-
-
-router.post('/test', function (req, res, next) {
-  db.query("select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'registros'; ", (error, results, fields) => {
-      if (error) throw error;
-      db.query("SELECT * FROM registros", (error, resp, fields) => {
-          if (error) throw error;
-          res.render('test', {
-              dataRegistros: resp,
-              columnNames: results
-          });
-      });
-  });
-});
 
 //#region Dash Board
 router.get('/graficos', (req, res) => {

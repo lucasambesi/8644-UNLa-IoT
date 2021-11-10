@@ -1,5 +1,26 @@
 const conexion = require('../database/db')
 
+function getDataPlanta(connection,tanque,callback){
+    let query = ''
+        switch(tanque){
+            case 'planta1':
+                query='select * from data where topic="sensor1" or topic="sensor2" or topic="sensor3" or topic="sensor4" or topic="sensor5" or topic="sensor6" or topic="sensor7" or topic="sensor8" or topic="sensor9" order by create_at desc LIMIT 0,200'
+            break;
+            case 'planta2':
+                query='select * from data where topic="sensor10" or topic="sensor11" or topic="sensor12" or topic="sensor13" or topic="sensor14" or topic="sensor15" or topic="sensor16" or topic="sensor17" or topic="sensor18" order by create_at desc LIMIT 0,200'
+            break;
+            default:
+                query='select * from data order by create_at desc'
+        }
+        
+        conexion.query(query, (error, results) => {
+          if (error) throw error
+          else{
+            callback(results)
+          }
+        })
+    }
+
 function getData(connection,tanque,callback){
 let query = ''
     switch(tanque){
@@ -82,4 +103,4 @@ function getLastPhByTanque(connection,tanque,callback){
         })
     } 
 
-module.exports = {getData,getLastPhByTanque}
+module.exports = {getDataPlanta,getData,getLastPhByTanque}
