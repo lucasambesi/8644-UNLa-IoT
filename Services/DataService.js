@@ -37,19 +37,16 @@ function getLastPhByTanque(connection,tanque,callback){
     let query = ''
     switch(tanque){
         case 'tanque1':
-            query= ' set @sensor1 := (select id from data where topic= "sensor1" ORDER BY create_at DESC LIMIT 0,1);'
-              +'set @sensor2 := (select id from data where topic= "sensor2" ORDER BY create_at DESC LIMIT 0,1);'
-              +'set @sensor3 := (select id from data where topic= "sensor3" ORDER BY create_at DESC LIMIT 0,1);'
-              +'(select * from data where id=@sensor1) UNION (select * from data where id=@sensor2) UNION (select * from data where id=@sensor3);'
+            query= '(select * from data where id=(select id from data where topic= "sensor1" ORDER BY create_at DESC LIMIT 0,1)) UNION (select * from data where id=(select id from data where topic= "sensor2" ORDER BY create_at DESC LIMIT 0,1)) UNION (select * from data where id=(select id from data where topic= "sensor3" ORDER BY create_at DESC LIMIT 0,1));'
         break;
         case 'tanque2':
-            query= ' set @sensor1 := (select id from data where topic= "sensor4" ORDER BY create_at DESC LIMIT 0,1);'
+            query= 'set @sensor1 := (select id from data where topic= "sensor4" ORDER BY create_at DESC LIMIT 0,1);'
               +'set @sensor2 := (select id from data where topic= "sensor5" ORDER BY create_at DESC LIMIT 0,1);'
               +'set @sensor3 := (select id from data where topic= "sensor6" ORDER BY create_at DESC LIMIT 0,1);'
               +'(select * from data where id=@sensor1) UNION (select * from data where id=@sensor2) UNION (select * from data where id=@sensor3);'
         break;
         case 'tanque3':
-            query= ' set @sensor1 := (select id from data where topic= "sensor7" ORDER BY create_at DESC LIMIT 0,1);'
+            query= 'set @sensor1 := (select id from data where topic= "sensor7" ORDER BY create_at DESC LIMIT 0,1);'
             +'set @sensor2 := (select id from data where topic= "sensor8" ORDER BY create_at DESC LIMIT 0,1);'
             +'set @sensor3 := (select id from data where topic= "sensor9" ORDER BY create_at DESC LIMIT 0,1);'
             +'(select * from data where id=@sensor1) UNION (select * from data where id=@sensor2) UNION (select * from data where id=@sensor3);'
