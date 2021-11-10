@@ -47,16 +47,31 @@ router.get('/planta2', (req, res) => {
 })
 //#endregion
 
+
+router.post('/test', function (req, res, next) {
+  db.query("select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'registros'; ", (error, results, fields) => {
+      if (error) throw error;
+      db.query("SELECT * FROM registros", (error, resp, fields) => {
+          if (error) throw error;
+          res.render('test', {
+              dataRegistros: resp,
+              columnNames: results
+          });
+      });
+  });
+});
+
 //#region Dash Board
 router.get('/graficos', (req, res) => {
-
+let respuesta = '';
   lastPhAllTanques(conexion,'',resultLastPhAllTanques => {
+    respuesta = resultLastPhAllTanques
     getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
       res.render('charts/graficos', {
         tituloHead:'PP UNLa',
         titulo : 'Dashboard PP UNLa',
         nombreTanque: 'Tanque 1',
-        lastPhAll : resultLastPhAllTanques,
+        lastPhAll : respuesta,
         lastPH: resultGetLastPhByTanque
       })
      })
