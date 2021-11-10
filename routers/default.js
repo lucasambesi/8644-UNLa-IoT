@@ -49,15 +49,12 @@ router.get('/planta2', (req, res) => {
 
 //#region Dash Board
 router.get('/graficos', (req, res) => {
-
-  let lastPhAllTanques = lastPhAllTanques(conexion,'',result => {return result})
-
   getLastPhByTanque(conexion,'tanque1',result => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 1',
-      lastPhAll : lastPhAllTanques,
+      lastPhAll : lastPhAllTanques(conexion,'',result => {return result}),
       lastPH: result
     })
    })
