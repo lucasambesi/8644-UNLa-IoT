@@ -22,12 +22,15 @@ router.get('/', (req, res) => {
 //#region Plantas Broker MQTT
 router.get('/planta1', (req, res) => {
   getDataPlanta(conexion,'planta1',result => {
-      res.render('plantas', {
-        planta : 'planta1',
-        tituloHead:'PP UNLa',
-        titulo : 'Dashboard PP UNLa',
-        data : result
-      })
+    if (error) throw error
+    else{
+        res.render('plantas', {
+          planta : 'planta1',
+          tituloHead:'PP UNLa',
+          titulo : 'Dashboard PP UNLa',
+          data : result
+        })
+      }
     })
 })
 
@@ -40,7 +43,7 @@ router.get('/planta2', (req, res) => {
           planta : 'planta2',
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
-          data : results
+          data : result
         })
       }
     })
