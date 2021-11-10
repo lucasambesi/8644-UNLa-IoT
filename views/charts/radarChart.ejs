@@ -1,0 +1,83 @@
+<script>
+    let ctx= document.getElementById("radarChart").getContext("2d")
+    let tanque = document.getElementById("nombreTanqueAux").innerText
+    let lastPhTanque = JSON.parse(document.getElementById("lastPhAux").innerText) 
+    let phSensor1 = ''
+    let phSensor2 = ''
+    let phSensor3 = ''
+    let phSensorValue1 = ''
+    let phSensorValue2 = ''
+    let phSensorValue3 = ''
+
+    switch(tanque){
+        case 'Tanque 1':
+        phSensor1 = 'sensor1'
+        phSensor2 = 'sensor2'
+        phSensor3 = 'sensor3'
+        break;
+        case 'Tanque 2':
+        phSensor1 = 'sensor4'
+        phSensor2 = 'sensor5'
+        phSensor3 = 'sensor6'
+        break;
+        case 'Tanque 3':
+        phSensor1 = 'sensor7'
+        phSensor2 = 'sensor8'
+        phSensor3 = 'sensor9'
+        break;
+        case 'Tanque 4':
+        phSensor1 = 'sensor10'
+        phSensor2 = 'sensor11'
+        phSensor3 = 'sensor12'
+        break;
+        case 'Tanque 5':
+        phSensor1 = 'sensor13'
+        phSensor2 = 'sensor14'
+        phSensor3 = 'sensor15'
+        break;
+        case 'Tanque 6':
+        phSensor1 = 'sensor16'
+        phSensor2 = 'sensor17'
+        phSensor3 = 'sensor18'
+        break;
+        default:
+        phSensor1 = ''
+        phSensor2 = ''
+        phSensor3 = ''
+    }
+
+    lastPhTanque.forEach(sensor => {
+        switch(sensor.topic){
+            case phSensor1:
+                phSensorValue1 =  sensor.mensaje
+            break;
+            case phSensor2:
+                phSensorValue2 =  sensor.mensaje
+            break;
+            case phSensor3:
+                phSensorValue3 =  sensor.mensaje
+            break;
+        }
+    });
+    let myChart = new Chart(ctx,{
+        type: "radar",
+        data:{
+            labels : [phSensor1,phSensor2,phSensor3],
+            datasets:[{
+                label: 'valor pH',
+                data:[phSensorValue1,phSensorValue2,phSensorValue3],
+                backgroundColor: [
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 204, 102, 0.5)',
+                    'rgb(0, 0, 255, 0.5)'
+                ]              
+            }]                
+        },
+        options: {
+        scale: {
+            min: 0,
+            max: 14,
+        },
+    },        
+});
+</script>
