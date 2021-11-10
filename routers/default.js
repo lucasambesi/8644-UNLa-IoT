@@ -79,76 +79,100 @@ let respuesta = '';
 })
 
 router.get('/tanque1', (req, res) => {
-  getLastPhByTanque(conexion,'tanque1',result => {
-    res.render('charts/graficos', {
-      tituloHead:'PP UNLa',
-      titulo : 'Dashboard PP UNLa',
-      data : result,
-      nombreTanque: 'Tanque 1',
-      lastPH: result
-    })
-   })
+   let respuesta = '';
+    getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+    respuesta = resultLastPhAllTanques
+    getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
+      res.render('charts/graficos', {
+        tituloHead:'PP UNLa',
+        titulo : 'Dashboard PP UNLa',
+        nombreTanque: 'Tanque 1',
+        lastPhAll : respuesta,
+        lastPH: resultGetLastPhByTanque
+      })
+     })
+  })
 })
 
 router.get('/tanque2', (req, res) => {
-  getLastPhByTanque(conexion,'tanque2',result => {
+  let respuesta = '';
+  getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+  respuesta = resultLastPhAllTanques
+  getLastPhByTanque(conexion,'tanque2',resultGetLastPhByTanque => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result,
       nombreTanque: 'Tanque 2',
-      lastPH: result
+      lastPhAll : respuesta,
+      lastPH: resultGetLastPhByTanque
     })
    })
+})
 })
 
 router.get('/tanque3', (req, res) => {
-  getLastPhByTanque(conexion,'tanque3',result => {
+  let respuesta = '';
+  getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+  respuesta = resultLastPhAllTanques
+  getLastPhByTanque(conexion,'tanque3',resultGetLastPhByTanque => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result,
       nombreTanque: 'Tanque 3',
-      lastPH: result
+      lastPhAll : respuesta,
+      lastPH: resultGetLastPhByTanque
     })
    })
+})
 })
 
 router.get('/tanque4', (req, res) => {
-  getLastPhByTanque(conexion,'tanque4',result => {
+  let respuesta = '';
+  getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+  respuesta = resultLastPhAllTanques
+  getLastPhByTanque(conexion,'tanque4',resultGetLastPhByTanque => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result,
       nombreTanque: 'Tanque 4',
-      lastPH: result
+      lastPhAll : respuesta,
+      lastPH: resultGetLastPhByTanque
     })
    })
 })
+})
 
 router.get('/tanque5', (req, res) => {
-  getLastPhByTanque(conexion,'tanque5',result => {
+  let respuesta = '';
+  getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+  respuesta = resultLastPhAllTanques
+  getLastPhByTanque(conexion,'tanque5',resultGetLastPhByTanque => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result,
       nombreTanque: 'Tanque 5',
-      lastPH: result
+      lastPhAll : respuesta,
+      lastPH: resultGetLastPhByTanque
     })
    })
+})
 })
 
 
 router.get('/tanque6', (req, res) => {
-  getLastPhByTanque(conexion,'tanque6',result => {
+  let respuesta = '';
+  getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
+  respuesta = resultLastPhAllTanques
+  getLastPhByTanque(conexion,'tanque6',resultGetLastPhByTanque => {
     res.render('charts/graficos', {
       tituloHead:'PP UNLa',
       titulo : 'Dashboard PP UNLa',
-      data : result,
       nombreTanque: 'Tanque 6',
-      lastPH: result
+      lastPhAll : respuesta,
+      lastPH: resultGetLastPhByTanque
     })
    })
+})
 })
 //#endregion
 
