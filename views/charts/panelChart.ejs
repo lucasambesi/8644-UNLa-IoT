@@ -58,22 +58,18 @@
         lastPH.forEach(sensor => {
             if(sensor.topic == sensorActivo)
             {
-                let fechaSensor = sensor.create_at
-                let fechaActual = new Date( Date.now()- 5000 * 60 )
+                let fechaSensor = moment(sensor.create_at).format('YYYY-MM-DD HH:mm:ss')
+                let fechaActual = moment(new Date( Date.now()- 5000 * 60 )).format('YYYY-MM-DD HH:mm:ss');
 
                 sensorPH.nombre = sensor.topic
                 sensorPH.mensaje = sensor.mensaje
-                sensorPH.create_at = fechaSensor          
-                sensorPH.estado = (fechaSensor > formatDate(fechaActual)) ? 'ON' : 'OFF'
+                sensorPH.create_at = fechaSensor        
+                sensorPH.estado =(moment(fechaSensor).isAfter(fechaActual)) ? 'ON' : 'OFF'
             }
         });
         return sensorPH
     })
     %> 
-    <%= formatDate = ((current_datetime)=>{
-        let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
-        return formatted_date;
-    })  %> 
     <%= sensor1 = setSensorPH('1')%> 
     <%= sensor2 = setSensorPH('2')%> 
     <%= sensor3 = setSensorPH('3')%> 
