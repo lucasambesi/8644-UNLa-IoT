@@ -107,22 +107,22 @@ function getLastPhByTanque(connection,tanque,callback){
         let query = ''
         switch(tanque){
             case 'tanque1':
-                query= 'select * from data where  (topic="sensor1" OR  topic= "sensor2" OR topic= "sensor3") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor1" OR  topic= "sensor2" OR topic= "sensor3") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             case 'tanque2':
-                query= 'select * from data where  (topic="sensor4" OR  topic= "sensor5" OR topic= "sensor6") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor4" OR  topic= "sensor5" OR topic= "sensor6") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             case 'tanque3':
-                query= 'select * from data where  (topic="sensor7" OR  topic= "sensor8" OR topic= "sensor9") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor7" OR  topic= "sensor8" OR topic= "sensor9") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             case 'tanque4':
-                query= 'select * from data where  (topic="sensor10" OR  topic= "sensor11" OR topic= "sensor12") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor10" OR  topic= "sensor11" OR topic= "sensor12") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             case 'tanque5':
-                query= 'select * from data where  (topic="sensor13" OR  topic= "sensor14" OR topic= "sensor15") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor13" OR  topic= "sensor14" OR topic= "sensor15") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             case 'tanque6':
-                query= 'select * from data where  (topic="sensor16" OR  topic= "sensor17" OR topic= "sensor18") and create_at >= (NOW() - INTERVAL 7 DAY)'
+                query= 'select * from data where  (topic="sensor16" OR  topic= "sensor17" OR topic= "sensor18") and create_at >= (NOW() - INTERVAL 10 DAY)'
             break;
             default:
                 query='select * from data where create_at >= (NOW() - INTERVAL 10 DAY)'
