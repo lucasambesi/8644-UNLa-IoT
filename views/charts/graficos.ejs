@@ -17,5 +17,9 @@
     <%- include("panelChart", {idChart:'panelChart',moment: moment,nombre: nombreTanque, lastPH: lastPH, widthChart: '200', heightChart: '200'}) %>
     <%- include("chartCard", {idChart:'radarChart', nombre: nombreTanque, widthChart: '200', heightChart: '200'}) %>
 </div>
+<div class="card-group">  
+    <%- include("chartCard", {idChart:'barChart', nombre: nombreTanque, widthChart: '200', heightChart: '100'}) %>
+</div>    
 <%- include("../templates/footer") %>
 <%- include("radarChart") %>
+<%- include("BarChart") %>
