@@ -100,7 +100,13 @@
                                 <th scope="row"><%= sensor1.nombre %></th>
                                 <td><%= sensor1.mensaje %></td>
                                 <td><%= sensor1.create_at %></td>
-                                <td><%= sensor1.estado %></td>
+                                <td>
+                                    <% if(sensor1.estado == 'ON'){ %>  
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908240791359615006/on.png" alt="Alerta">
+                                    <% } else{ %> 
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908241063490248764/off.png" alt="Alerta">    
+                                    <% }%> 
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -120,7 +126,14 @@
                                 <th scope="row"><%= sensor2.nombre %></th>
                                 <td><%= sensor2.mensaje %></td>
                                 <td><%= sensor2.create_at %></td>
-                                <td><%= sensor2.estado %></td>
+                                <td>
+                                    <% if(sensor2.estado == 'ON'){ %>  
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908240791359615006/on.png" alt="Alerta">
+                                    <% } else{ %> 
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908241063490248764/off.png" alt="Alerta">    
+                                    <% }%> 
+                                </td>
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -140,7 +153,13 @@
                                 <th scope="row"><%= sensor3.nombre %></th>
                                 <td><%= sensor3.mensaje %></td>
                                 <td><%= sensor3.create_at %></td>
-                                <td><%= sensor3.estado %></td>
+                                <td>
+                                    <% if(sensor3.estado == 'ON'){ %>  
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908240791359615006/on.png" alt="Alerta">
+                                    <% } else{ %> 
+                                        <img src="https://cdn.discordapp.com/attachments/492588781585563651/908241063490248764/off.png" alt="Alerta">    
+                                    <% }%> 
+                                </td>
                             </tr>
                         </tbody>
                     </table>
