@@ -13,7 +13,7 @@
     let sensor3Nombre = ''
 
     lastWeekPhTanque.forEach(data => {
-        moment(data.create_at).format('YYYY-MM-DD');
+        moment(data.create_at).format('YYYY-MM-DD HH:mm:ss');
         switch (tanqueName) {
             case 'Tanque 1':
                 if(data.topic =='sensor1')
@@ -85,7 +85,7 @@
         }
     });
 
-    let fechaAux = moment(new Date( Date.now())).format('YYYY-MM-DD');
+    let fechaAux = moment(new Date( Date.now())).format('YYYY-MM-DD  HH:mm:ss');
     let dias = []
     let sensor1Valores = []
     let sensor2Valores = []
