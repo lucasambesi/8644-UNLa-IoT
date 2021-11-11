@@ -125,7 +125,7 @@ function getLastPhByTanque(connection,tanque,callback){
                 query= 'select * from data where  (topic="sensor16" OR  topic= "sensor17" OR topic= "sensor18") and create_at >= (NOW() - INTERVAL 7 DAY)'
             break;
             default:
-                query='select * from data where create_at >= (NOW() - INTERVAL 7 DAY)'
+                query='select * from data where create_at >= (NOW() - INTERVAL 10 DAY)'
         }
             conexion.query(query, (error, results) => {
               if (error) throw error
