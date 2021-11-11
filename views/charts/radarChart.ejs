@@ -59,6 +59,7 @@
             break;
         }
     });
+
     let myChart = new Chart(ctx,{
         type: "radar",
         data:{
@@ -66,18 +67,34 @@
             datasets:[{
                 label: 'valor pH',
                 data:[phSensorValue1,phSensorValue3,phSensorValue2],
-                backgroundColor: [
-                    'rgb(255, 0, 0, 0.5)',
-                    'rgb(0, 204, 102, 0.5)',
-                    'rgb(0, 0, 255, 0.5)'
-                ]              
-            }]                
+                fill: true, 
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'            
+            }],                           
         },
         options: {
+            elements: {
+            line: {
+                borderWidth: 3
+            }
+            },
         scale: {
             min: 0,
             max: 14,
         },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Ultima medición pH',
+            },
+            legend:{
+                position: 'bottom',
+            }
+        }
     },        
 });
 </script>
