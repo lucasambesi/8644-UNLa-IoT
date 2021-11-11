@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const conexion = require('../database/db')
 const broker = require('../brokerMqtt/mqtt')
+const moment = require('moment');
+
 const {getDataPlanta,getData,getLastPhByTanque} = require('../Services/DataService')
 
  //#region Index
@@ -12,7 +14,8 @@ router.get('/', (req, res) => {
         res.render('index', {
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
-          dispositivos : results
+          dispositivos : results,
+          moment: moment
       })
       }
     })
@@ -26,7 +29,8 @@ router.get('/planta1', (req, res) => {
           planta : 'planta1',
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
-          data : result
+          data : result,
+          moment: moment
         })
     })
 })
@@ -38,7 +42,8 @@ router.get('/planta2', (req, res) => {
           planta : 'planta2',
           tituloHead:'PP UNLa',
           titulo : 'Dashboard PP UNLa',
-          data : result
+          data : result,
+          moment: moment
         })
     })
 })
@@ -55,7 +60,8 @@ let respuesta = '';
         titulo : 'Dashboard PP UNLa',
         nombreTanque: 'Tanque 1',
         lastPhAll : respuesta,
-        lastPH: resultGetLastPhByTanque
+        lastPH: resultGetLastPhByTanque,
+        moment: moment
       })
      })
   })
@@ -71,7 +77,8 @@ router.get('/tanque1', (req, res) => {
         titulo : 'Dashboard PP UNLa',
         nombreTanque: 'Tanque 1',
         lastPhAll : respuesta,
-        lastPH: resultGetLastPhByTanque
+        lastPH: resultGetLastPhByTanque,
+        moment: moment
       })
      })
   })
@@ -87,7 +94,8 @@ router.get('/tanque2', (req, res) => {
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 2',
       lastPhAll : respuesta,
-      lastPH: resultGetLastPhByTanque
+      lastPH: resultGetLastPhByTanque,
+      moment: moment
     })
    })
 })
@@ -103,7 +111,8 @@ router.get('/tanque3', (req, res) => {
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 3',
       lastPhAll : respuesta,
-      lastPH: resultGetLastPhByTanque
+      lastPH: resultGetLastPhByTanque,
+      moment: moment
     })
    })
 })
@@ -119,7 +128,8 @@ router.get('/tanque4', (req, res) => {
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 4',
       lastPhAll : respuesta,
-      lastPH: resultGetLastPhByTanque
+      lastPH: resultGetLastPhByTanque,
+      moment: moment
     })
    })
 })
@@ -135,7 +145,8 @@ router.get('/tanque5', (req, res) => {
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 5',
       lastPhAll : respuesta,
-      lastPH: resultGetLastPhByTanque
+      lastPH: resultGetLastPhByTanque,
+      moment: moment
     })
    })
 })
@@ -152,7 +163,8 @@ router.get('/tanque6', (req, res) => {
       titulo : 'Dashboard PP UNLa',
       nombreTanque: 'Tanque 6',
       lastPhAll : respuesta,
-      lastPH: resultGetLastPhByTanque
+      lastPH: resultGetLastPhByTanque,
+      moment: moment
     })
    })
 })
