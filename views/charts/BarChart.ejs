@@ -1,28 +1,146 @@
 <script>
-    
-
     let ctxBar= document.getElementById("barChart").getContext("2d")
+    let lastWeekPhTanque = JSON.parse(document.getElementById("lastWeekPhAux").innerText) 
+    let tanqueName = document.getElementById("nombreTanqueAux").innerText
     const NUMBER_CFG = {count: 7, min: -100, max: 100};
     const labels = [1,2,3,4,5,6,7];
-    
+   
+    let sensor1 = []
+    let sensor2 = []
+    let sensor3 = []
+    let sensor1Nombre = ''
+    let sensor2Nombre = ''
+    let sensor3Nombre = ''
+
+    lastWeekPhTanque.forEach(data => {
+        moment(data.create_at).format('YYYY-MM-DD');
+        switch (tanqueName) {
+            case 'Tanque 1':
+                if(data.topic =='sensor1')
+                    sensor1.push(data)
+                else if(data.topic =='sensor2')
+                    sensor2.push(data)
+                else if(data.topic =='sensor3')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor1'
+                sensor2Nombre = 'sensor2'
+                sensor3Nombre = 'sensor3'   
+        break;
+            case 'Tanque 2':
+                if(data.topic =='sensor4')
+                    sensor1.push(data)
+                else if(data.topic =='sensor5')
+                    sensor2.push(data)
+                else if(data.topic =='sensor6')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor4'
+                sensor2Nombre = 'sensor5'
+                sensor3Nombre = 'sensor6' 
+        break;
+            case 'Tanque 3':
+                if(data.topic =='sensor7')
+                    sensor1.push(data)
+                else if(data.topic =='sensor8')
+                    sensor2.push(data)
+                else if(data.topic =='sensor9')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor7'
+                sensor2Nombre = 'sensor8'
+                sensor3Nombre = 'sensor9' 
+        break;
+            case 'Tanque 4':
+                if(data.topic =='sensor10')
+                    sensor1.push(data)
+                else if(data.topic =='sensor11')
+                    sensor2.push(data)
+                else if(data.topic =='sensor12')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor10'
+                sensor2Nombre = 'sensor11'
+                sensor3Nombre = 'sensor12' 
+        break;
+            case 'Tanque 5':
+                if(data.topic =='sensor13')
+                    sensor1.push(data)
+                else if(data.topic =='sensor14')
+                    sensor2.push(data)
+                else if(data.topic =='sensor15')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor13'
+                sensor2Nombre = 'sensor14'
+                sensor3Nombre = 'sensor15' 
+        break;
+            case 'Tanque 6':
+                if(data.topic =='sensor16')
+                    sensor1.push(data)
+                else if(data.topic =='sensor17')
+                    sensor2.push(data)
+                else if(data.topic =='sensor18')
+                    sensor3.push(data)
+                sensor1Nombre = 'sensor16'
+                sensor2Nombre = 'sensor17'
+                sensor3Nombre = 'sensor18' 
+        break;
+        default:
+        }
+    });
+
+    let fechaAux = moment(new Date( Date.now())).format('YYYY-MM-DD');
+    let dias = []
+    let sensor1Valores = []
+    let sensor2Valores = []
+    let sensor3Valores = []
+    fechaAux = moment(fechaAux).subtract(7, 'days')//moment(fechaAux).set("days",moment(fechaAux).date() - 8); 
+    while (fechaAux <= moment(Date.now()).subtract(1, 'days')) {     
+        dias.push(fechaAux.format('YYYY-MM-DD'))
+        let valor =sensor1.find(x => moment(x.create_at).date() == moment(fechaAux).date())
+        if(typeof valor === 'undefined'){
+            valor={
+                mesaje:0
+            }
+        }
+        sensor1Valores.push(valor)
+        valor=sensor2.find(x => moment(x.create_at).date() == moment(fechaAux).date())
+        if(typeof valor === 'undefined'){
+            valor={
+                mesaje:0
+            }
+        }
+        sensor2Valores.push(valor)
+        valor= sensor3.find(x => moment(x.create_at).date() == moment(fechaAux).date())
+        if(typeof valor === 'undefined'){
+            valor={
+                mesaje:0
+            }
+        }
+        sensor3Valores.push(valor)
+        fechaAux = moment(fechaAux).add(1, 'days');
+    }
+console.log('dias:',dias)
+console.log('dias sensor 1:',sensor1Valores)
+console.log('dias sensor 2:',sensor2Valores)
+console.log('dias sensor 3:',sensor3Valores)
     const data = {
-        labels: labels,
+        labels: dias,
         datasets: [
             {
-            label: 'sensor1',
-            data: [1,6,9],
+            label: sensor1Nombre,
+            data: [sensor1Valores[0].mensaje,sensor1Valores[1].mensaje,sensor1Valores[2].mensaje,sensor1Valores[3].mensaje,
+            ,sensor1Valores[4].mensaje,sensor1Valores[5].mensaje,sensor1Valores[6].mensaje],
             borderColor: 'rgb(102, 255, 102)',
             backgroundColor: 'rgba(102, 255, 102, 0.9)',
             },
             {
-            label: 'sensor2',
-            data: [4,2,8],
+            label: sensor2Nombre,
+            data: [sensor2Valores[0].mensaje,sensor2Valores[1].mensaje,sensor2Valores[2].mensaje,sensor2Valores[3].mensaje,
+            ,sensor2Valores[4].mensaje,sensor2Valores[5].mensaje,sensor2Valores[6].mensaje],
             borderColor: 'rgb(255, 255, 0)',
             backgroundColor: 'rgba(255, 255, 0, 0.9)',
             },
             {
-            label: 'sensor3',
-            data: [4,2,8],
+            label: sensor3Nombre,
+            data: [sensor3Valores[0].mensaje,sensor3Valores[1].mensaje,sensor3Valores[2].mensaje,sensor3Valores[3].mensaje,
+            ,sensor3Valores[4].mensaje,sensor3Valores[5].mensaje,sensor3Valores[6].mensaje],
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.9)',
             }
