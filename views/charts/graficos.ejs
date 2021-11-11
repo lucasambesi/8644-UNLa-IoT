@@ -18,8 +18,9 @@
     <%- include("chartCard", {idChart:'radarChart', nombre: nombreTanque, widthChart: '200', heightChart: '200'}) %>
 </div>
 <div class="card-group">  
-    <%- include("chartCard", {idChart:'barChart', nombre: nombreTanque, widthChart: '200', heightChart: '100'}) %>
+    <%- include("chartCard", {idChart:'barChart', lastWeekPH : lastWeekPH,nombre: nombreTanque, widthChart: '200', heightChart: '100'}) %>
 </div>    
+<%= lastWeekPH %> 
 <%- include("../templates/footer") %>
 <%- include("radarChart") %>
 <%- include("BarChart") %>

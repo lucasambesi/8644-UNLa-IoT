@@ -4,7 +4,7 @@ const conexion = require('../database/db')
 const broker = require('../brokerMqtt/mqtt')
 const moment = require('moment');
 
-const {getDataPlanta,getData,getLastPhByTanque} = require('../Services/DataService')
+const {getLastWeekPhByTanque,getDataPlanta,getData,getLastPhByTanque} = require('../Services/DataService')
 
  //#region Index
 router.get('/', (req, res) => {
@@ -50,39 +50,52 @@ router.get('/planta2', (req, res) => {
 //#endregion
 
 //#region Dash Board
+
 router.get('/graficos', (req, res) => {
-let respuesta = '';
+  let LastPhAllTanques = '';
+  let lastPhByTanque = '';
     getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
-    respuesta = resultLastPhAllTanques
-    getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
-      res.render('charts/graficos', {
-        tituloHead:'PP UNLa',
-        titulo : 'Dashboard PP UNLa',
-        nombreTanque: 'Tanque 1',
-        lastPhAll : respuesta,
-        lastPH: resultGetLastPhByTanque,
-        moment: moment
+      LastPhAllTanques = resultLastPhAllTanques
+      getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
+        lastPhByTanque = resultGetLastPhByTanque
+          getLastWeekPhByTanque(conexion,'tanque1',resultGetLastWeekPhByTanque => {
+            res.render('charts/graficos', {
+            tituloHead:'PP UNLa',
+            titulo : 'Dashboard PP UNLa',
+            nombreTanque: 'Tanque 1',
+            lastPhAll : LastPhAllTanques,
+            lastPH: lastPhByTanque,
+            lastWeekPH : resultGetLastWeekPhByTanque,
+            moment: moment
+          })
+        })
       })
-     })
+    })
   })
-})
+
+
 
 router.get('/tanque1', (req, res) => {
-   let respuesta = '';
+  let LastPhAllTanques = '';
+  let lastPhByTanque = '';
     getLastPhByTanque(conexion,'',resultLastPhAllTanques => {
-    respuesta = resultLastPhAllTanques
-    getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
-      res.render('charts/graficos', {
-        tituloHead:'PP UNLa',
-        titulo : 'Dashboard PP UNLa',
-        nombreTanque: 'Tanque 1',
-        lastPhAll : respuesta,
-        lastPH: resultGetLastPhByTanque,
-        moment: moment
+      LastPhAllTanques = resultLastPhAllTanques
+      getLastPhByTanque(conexion,'tanque1',resultGetLastPhByTanque => {
+        lastPhByTanque = resultGetLastPhByTanque
+          getLastWeekPhByTanque(conexion,'tanque1',resultGetLastWeekPhByTanque => {
+            res.render('charts/graficos', {
+            tituloHead:'PP UNLa',
+            titulo : 'Dashboard PP UNLa',
+            nombreTanque: 'Tanque 1',
+            lastPhAll : LastPhAllTanques,
+            lastPH: lastPhByTanque,
+            lastWeekPH : resultGetLastWeekPhByTanque,
+            moment: moment
+          })
+        })
       })
-     })
+    })
   })
-})
 
 router.get('/tanque2', (req, res) => {
   let respuesta = '';
