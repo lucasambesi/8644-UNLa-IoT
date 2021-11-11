@@ -30,7 +30,6 @@ broker.on('message',function(topic,message){
     return
     conexion.query(query,function(err,result,fields){
     if(err) throw err
-    else console.log("Insert exitoso: " + result);
   })
 })
 
