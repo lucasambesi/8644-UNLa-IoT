@@ -1,0 +1,157 @@
+<div style="display: none;">
+    <%= 
+    setSensorPH = ((orden) => {
+        let sensorPH={ nombre: '', mensaje: '', create_at: '', estado:''} 
+        let sensorActivo = ''
+        let phSensor1 = ''
+        let phSensor2 = ''
+        let phSensor3 = ''
+        switch(nombre){
+            case 'Tanque 1':
+            phSensor1 = 'sensor1'
+            phSensor2 = 'sensor2'
+            phSensor3 = 'sensor3'
+            break;
+            case 'Tanque 2':
+            phSensor1 = 'sensor4'
+            phSensor2 = 'sensor5'
+            phSensor3 = 'sensor6'
+            break;
+            case 'Tanque 3':
+            phSensor1 = 'sensor7'
+            phSensor2 = 'sensor8'
+            phSensor3 = 'sensor9'
+            break;
+            case 'Tanque 4':
+            phSensor1 = 'sensor10'
+            phSensor2 = 'sensor11'
+            phSensor3 = 'sensor12'
+            break;
+            case 'Tanque 5':
+            phSensor1 = 'sensor13'
+            phSensor2 = 'sensor14'
+            phSensor3 = 'sensor15'
+            break;
+            case 'Tanque 6':
+            phSensor1 = 'sensor16'
+            phSensor2 = 'sensor17'
+            phSensor3 = 'sensor18'
+            break;
+            default:
+            phSensor1 = ''
+            phSensor2 = ''
+            phSensor3 = ''
+        }
+    
+        switch(orden){
+                case '1':
+                    sensorActivo = phSensor1
+                break;
+                case '2':
+                    sensorActivo = phSensor2
+                break;
+                case '3':
+                    sensorActivo = phSensor3  
+                break;
+            }
+    
+        lastPH.forEach(sensor => {
+            if(sensor.topic == sensorActivo)
+            {
+                let fechaSensor = sensor.create_at
+                let fechaActual = new Date( Date.now()- 5000 * 60 )
+
+                sensorPH.nombre = sensor.topic
+                sensorPH.mensaje = sensor.mensaje
+                sensorPH.create_at = fechaSensor          
+                sensorPH.estado = (fechaSensor > formatDate(fechaActual)) ? 'ON' : 'OFF'
+            }
+        });
+        return sensorPH
+    })
+    %> 
+    <%= formatDate = ((current_datetime)=>{
+        let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
+        return formatted_date;
+    })  %> 
+    <%= sensor1 = setSensorPH('1')%> 
+    <%= sensor2 = setSensorPH('2')%> 
+    <%= sensor3 = setSensorPH('3')%> 
+</div>
+
+<div class="card" style="width: 18rem;">
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="card-body">
+        <div class="chart-container">   
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sensor</th>
+                            <th scope="col">pH</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><%= sensor1.nombre %></th>
+                                <td><%= sensor1.mensaje %></td>
+                                <td><%= sensor1.create_at %></td>
+                                <td><%= sensor1.estado %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li class="list-group-item">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sensor</th>
+                            <th scope="col">pH</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><%= sensor2.nombre %></th>
+                                <td><%= sensor2.mensaje %></td>
+                                <td><%= sensor2.create_at %></td>
+                                <td><%= sensor2.estado %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li class="list-group-item">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sensor</th>
+                            <th scope="col">pH</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><%= sensor3.nombre %></th>
+                                <td><%= sensor3.mensaje %></td>
+                                <td><%= sensor3.create_at %></td>
+                                <td><%= sensor3.estado %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul> 
+        </div>
+    </div>
+</div>
+
+
